@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { Logo } from "@/components/ui/logo";
 
 export function Header() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -14,9 +15,7 @@ export function Header() {
         <header className="w-full py-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <Container className="flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-                    <span className="text-primary">Enfócate</span>
-                </Link>
+                <Logo />
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-6">

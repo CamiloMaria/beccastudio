@@ -1,6 +1,6 @@
-import { Header } from "@/components/ui/header";
-import { Hero } from "@/components/ui/hero";
-import { Footer } from "@/components/ui/footer";
+import { Header } from "@/components/landing/header";
+import { Hero } from "@/components/landing/hero";
+import { Footer } from "@/components/landing/footer";
 
 export default function HomePage() {
   return (
