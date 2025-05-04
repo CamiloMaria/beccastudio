@@ -25,7 +25,7 @@ export function Footer() {
 
                     {/* Quick Links */}
                     <div>
-                        <h3 className="font-medium text-lg mb-4 gold-gradient bg-clip-text text-transparent inline-block">Enlaces Rápidos</h3>
+                        <h3 className="font-medium text-lg mb-4 text-gold">Enlaces Rápidos</h3>
                         <ul className="space-y-2">
                             <li>
                                 <Link
@@ -64,7 +64,7 @@ export function Footer() {
 
                     {/* Contact */}
                     <div>
-                        <h3 className="font-medium text-lg mb-4 gold-gradient bg-clip-text text-transparent inline-block">Contacto</h3>
+                        <h3 className="font-medium text-lg mb-4 text-gold">Contacto</h3>
                         <ul className="space-y-2">
                             <li>
                                 <a
