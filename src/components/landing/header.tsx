@@ -11,10 +11,10 @@ import { useEffect, useState } from "react";
 
 export function Header() {
     const navItems: NavItem[] = [
-        { label: 'Portfolio', href: '/portfolio' },
-        { label: 'Services', href: '/services' },
-        { label: 'About', href: '/about' },
-        { label: 'Contact', href: '/contact' },
+        { label: 'Portafolio', href: '/portfolio' },
+        { label: 'Servicios', href: '/services' },
+        { label: 'Acerca de', href: '/about' },
+        { label: 'Contacto', href: '/contact' },
     ];
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -66,7 +66,7 @@ export function Header() {
                 {/* CTA & Mobile Menu Button */}
                 <div className="flex items-center gap-4">
                     <Button asChild size="lg" className="hidden md:inline-flex">
-                        <Link href="/book">Book a Session</Link>
+                        <Link href="/book">Reserva una sesión</Link>
                     </Button>
 
                     <Button
@@ -96,7 +96,7 @@ export function Header() {
                             </Link>
                         ))}
                         <Button asChild className="mt-4">
-                            <Link href="/book" onClick={() => setIsMenuOpen(false)}>Book a Session</Link>
+                            <Link href="/book" onClick={() => setIsMenuOpen(false)}>Reserva una sesión</Link>
                         </Button>
                     </Container>
                 </div>
