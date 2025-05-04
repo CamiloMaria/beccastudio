@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Enfócate - Professional Photography",
-  description: "Professional photography services that bring your vision to life through the art of visual storytelling",
-  keywords: ["photography", "professional photographer", "photo sessions", "portraits", "events"],
+  title: "BeccaStudio - Fotografía Profesional",
+  description: "Fotografía profesional que captura momentos inolvidables",
+  keywords: ["fotografía", "fotografía profesional", "sesiones de fotos", "portraits", "eventos"],
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="es" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
       >

@@ -68,10 +68,10 @@ export function Footer() {
                         <ul className="space-y-2">
                             <li>
                                 <a
-                                    href="mailto:contact@enfocate.com"
+                                    href="mailto:contact@beccastudio.com"
                                     className="text-white/90 hover:text-gold transition-colors"
                                 >
-                                    contact@enfocate.com
+                                    contact@beccastudio.com
                                 </a>
                             </li>
                             <li className="text-white/90">
@@ -117,7 +117,7 @@ export function Footer() {
                 </div>
 
                 <div className="border-t border-gold/20 mt-8 pt-8 text-center text-white/70">
-                    <p>© {new Date().getFullYear()} <span className="text-gold">Enfócate Photography</span>. All rights reserved.</p>
+                    <p>© {new Date().getFullYear()} <span className="text-gold">BeccaStudio Photography</span>. All rights reserved.</p>
                 </div>
             </Container>
         </footer>

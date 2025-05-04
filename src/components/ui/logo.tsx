@@ -34,7 +34,7 @@ export function Logo({
         <>
             {showIcon && <Camera className="text-gold" {...iconSizes[size]} />}
             <span className={cn("text-white font-semibold", className)}>
-                Enfó<span className="text-gold gold-glow">cate</span>
+                Becca<span className="text-gold gold-glow">Studio</span>
             </span>
         </>
     );
