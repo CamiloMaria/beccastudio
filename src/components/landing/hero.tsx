@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 
-import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
+import { GoldButton } from "@/components/ui/gold-button";
 import { useEffect, useRef } from "react";
 
 export function Hero() {
@@ -48,7 +47,7 @@ export function Hero() {
             {/* Hero Content */}
             <Container className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 max-w-4xl">
-                    Capturando Tus Momentos Más Preciosos
+                    Capturando Tus <span className="text-gold gold-glow">Momentos</span> Más Preciosos
                 </h1>
 
                 <p className="text-lg md:text-xl max-w-2xl mb-8 text-white/90">
@@ -57,13 +56,23 @@ export function Hero() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                    <Button asChild size="lg" className="min-w-40">
-                        <Link href="/book">Reserva una sesión</Link>
-                    </Button>
+                    <GoldButton
+                        href="/book"
+                        size="lg"
+                        variant="glow"
+                        className="min-w-40"
+                    >
+                        Reserva una sesión
+                    </GoldButton>
 
-                    <Button asChild size="lg" variant="outline" className="min-w-40 border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20">
-                        <Link href="/portfolio">Explora el portafolio</Link>
-                    </Button>
+                    <GoldButton
+                        href="/portfolio"
+                        size="lg"
+                        variant="outline"
+                        className="min-w-40 backdrop-blur-sm"
+                    >
+                        Explora el portafolio
+                    </GoldButton>
                 </div>
             </Container>
         </section>

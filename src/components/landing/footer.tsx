@@ -4,10 +4,11 @@ import { Instagram, Facebook, Twitter } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
+import { GoldButton } from "@/components/ui/gold-button";
 
 export function Footer() {
     return (
-        <footer className="bg-black py-12 mt-auto border-t border-white/10">
+        <footer className="bg-black py-12 mt-auto border-t border-gold/20">
             <Container>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Logo and Description */}
@@ -17,16 +18,19 @@ export function Footer() {
                             Professional photography services specializing in portraits, events,
                             and special moments. We capture memories that last a lifetime.
                         </p>
+                        <GoldButton variant="link" href="/contact" className="mt-4 px-0">
+                            Contactar ahora →
+                        </GoldButton>
                     </div>
 
                     {/* Quick Links */}
                     <div>
-                        <h3 className="font-medium text-lg mb-4 text-white">Quick Links</h3>
+                        <h3 className="font-medium text-lg mb-4 gold-gradient bg-clip-text text-transparent inline-block">Enlaces Rápidos</h3>
                         <ul className="space-y-2">
                             <li>
                                 <Link
                                     href="/portfolio"
-                                    className="text-white/90 hover:text-white transition-colors"
+                                    className="text-white/90 hover:text-gold transition-colors"
                                 >
                                     Portfolio
                                 </Link>
@@ -34,7 +38,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/services"
-                                    className="text-white/90 hover:text-white transition-colors"
+                                    className="text-white/90 hover:text-gold transition-colors"
                                 >
                                     Services
                                 </Link>
@@ -42,7 +46,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/about"
-                                    className="text-white/90 hover:text-white transition-colors"
+                                    className="text-white/90 hover:text-gold transition-colors"
                                 >
                                     About
                                 </Link>
@@ -50,7 +54,7 @@ export function Footer() {
                             <li>
                                 <Link
                                     href="/contact"
-                                    className="text-white/90 hover:text-white transition-colors"
+                                    className="text-white/90 hover:text-gold transition-colors"
                                 >
                                     Contact
                                 </Link>
@@ -60,12 +64,26 @@ export function Footer() {
 
                     {/* Contact */}
                     <div>
-                        <h3 className="font-medium text-lg mb-4 text-white">Contact</h3>
+                        <h3 className="font-medium text-lg mb-4 gold-gradient bg-clip-text text-transparent inline-block">Contacto</h3>
                         <ul className="space-y-2">
-                            <li className="text-white/90">contact@enfocate.com</li>
-                            <li className="text-white/90">+1 (555) 123-4567</li>
+                            <li>
+                                <a
+                                    href="mailto:contact@enfocate.com"
+                                    className="text-white/90 hover:text-gold transition-colors"
+                                >
+                                    contact@enfocate.com
+                                </a>
+                            </li>
                             <li className="text-white/90">
-                                123 Photography St, Suite 101<br />
+                                <a
+                                    href="tel:+15551234567"
+                                    className="text-white/90 hover:text-gold transition-colors"
+                                >
+                                    +1 (555) 123-4567
+                                </a>
+                            </li>
+                            <li className="text-white/90">
+                                <span className="text-gold">Dirección:</span> 123 Photography St, Suite 101<br />
                                 City, State 12345
                             </li>
                             <li className="flex items-center gap-4 mt-4">
@@ -73,7 +91,7 @@ export function Footer() {
                                     href="https://instagram.com"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-white/90 hover:text-white transition-colors"
+                                    className="text-gold/90 hover:text-gold transition-colors hover:scale-110"
                                 >
                                     <Instagram size={20} />
                                 </Link>
@@ -81,7 +99,7 @@ export function Footer() {
                                     href="https://facebook.com"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-white/90 hover:text-white transition-colors"
+                                    className="text-gold/90 hover:text-gold transition-colors hover:scale-110"
                                 >
                                     <Facebook size={20} />
                                 </Link>
@@ -89,7 +107,7 @@ export function Footer() {
                                     href="https://twitter.com"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-white/90 hover:text-white transition-colors"
+                                    className="text-gold/90 hover:text-gold transition-colors hover:scale-110"
                                 >
                                     <Twitter size={20} />
                                 </Link>
@@ -98,8 +116,8 @@ export function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-white/10 mt-8 pt-8 text-center text-white/70">
-                    <p>© {new Date().getFullYear()} Enfócate Photography. All rights reserved.</p>
+                <div className="border-t border-gold/20 mt-8 pt-8 text-center text-white/70">
+                    <p>© {new Date().getFullYear()} <span className="text-gold">Enfócate Photography</span>. All rights reserved.</p>
                 </div>
             </Container>
         </footer>
