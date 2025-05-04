@@ -32,8 +32,8 @@ export function Logo({
 
     const logoContent = (
         <>
-            {showIcon && <Camera className="text-primary" {...iconSizes[size]} />}
-            <span className={cn("text-primary", className)}>Enfócate</span>
+            {showIcon && <Camera className="text-white" {...iconSizes[size]} />}
+            <span className={cn("text-white", className)}>Enfócate</span>
         </>
     );
 

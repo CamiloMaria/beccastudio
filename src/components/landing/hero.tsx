@@ -27,33 +27,33 @@ export function Hero() {
             {/* Hero Background Image */}
             <div ref={parallaxRef} className="absolute inset-0 z-0">
                 <Image
-                    src="/images/hero-bg.jpg"
+                    src="https://images.pexels.com/photos/1484794/pexels-photo-1484794.jpeg?auto=compress&cs=tinysrgb&w=1920"
                     alt="Professional photography showcase"
                     fill
                     className="object-cover"
                     priority
                 />
-                <div className="absolute inset-0 bg-black/40 z-10" />
+                <div className="absolute inset-0 bg-black/60 z-10" />
             </div>
 
             {/* Hero Content */}
             <Container className="relative z-20 flex flex-col items-center justify-center h-full text-center text-white">
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 max-w-4xl">
-                    Capturando Tus Momentos Más Preciosos
+                    Capturing Your Most Precious Moments
                 </h1>
 
-                <p className="text-lg md:text-xl max-w-2xl mb-8 text-white/80">
-                    Servicios de fotografía profesional que dan vida a tu visión a través
-                    del arte de contar historias visuales
+                <p className="text-lg md:text-xl max-w-2xl mb-8 text-white/90">
+                    Professional photography services that bring your vision to life through
+                    the art of visual storytelling
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
                     <Button asChild size="lg" className="min-w-40">
-                        <Link href="/book">Reserva una sesión</Link>
+                        <Link href="/book">Book a Session</Link>
                     </Button>
 
                     <Button asChild size="lg" variant="outline" className="min-w-40 border-white/30 bg-white/10 backdrop-blur-sm hover:bg-white/20">
-                        <Link href="/portfolio">Explora el portafolio</Link>
+                        <Link href="/portfolio">Explore Portfolio</Link>
                     </Button>
                 </div>
             </Container>

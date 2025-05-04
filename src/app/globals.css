@@ -45,71 +45,72 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.33 0.18 261.8); /* Photography-themed indigo/purple */
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.33 0.18 261.8); /* Match primary */
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.33 0.18 261.8); /* Match primary */
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --background: #000000; /* Black background */
+  --foreground: #f8f8f8; /* Neutral 50 for default text */
+  --card: #000000; /* Black background */
+  --card-foreground: #f8f8f8; /* Neutral 50 for text */
+  --popover: #000000; /* Black background */
+  --popover-foreground: #f8f8f8; /* Neutral 50 for text */
+  --primary: #ffffff; /* White as primary color */
+  --primary-foreground: #000000; /* Black text on primary */
+  --secondary: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+  --secondary-foreground: #ffffff; /* White text */
+  --muted: rgba(0, 0, 0, 0.9); /* Black with opacity */
+  --muted-foreground: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+  --accent: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+  --accent-foreground: #ffffff; /* White text */
+  --destructive: oklch(0.577 0.245 27.325); /* Keep original */
+  --border: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
+  --input: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+  --ring: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
+  --chart-1: oklch(0.646 0.222 41.116); /* Keep original */
+  --chart-2: oklch(0.6 0.118 184.704); /* Keep original */
+  --chart-3: oklch(0.398 0.07 227.392); /* Keep original */
+  --chart-4: oklch(0.828 0.189 84.429); /* Keep original */
+  --chart-5: oklch(0.769 0.188 70.08); /* Keep original */
+  --sidebar: #000000; /* Black background */
+  --sidebar-foreground: #f8f8f8; /* Neutral 50 for text */
+  --sidebar-primary: #ffffff; /* White as primary */
+  --sidebar-primary-foreground: #000000; /* Black text on primary */
+  --sidebar-accent: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+  --sidebar-accent-foreground: #ffffff; /* White text */
+  --sidebar-border: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
+  --sidebar-ring: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.61 0.21 264.3); /* Lighter purple for dark mode */
-  --primary-foreground: oklch(0.145 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.61 0.21 264.3); /* Match primary */
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.61 0.21 264.3); /* Match primary */
-  --sidebar-primary-foreground: oklch(0.145 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+/* Since we're using a dark theme by default, we'll adjust the light theme but keep it as an option */
+.light {
+  --background: #ffffff; /* White background */
+  --foreground: #000000; /* Black text */
+  --card: #ffffff; /* White background */
+  --card-foreground: #000000; /* Black text */
+  --popover: #ffffff; /* White background */
+  --popover-foreground: #000000; /* Black text */
+  --primary: #000000; /* Black as primary */
+  --primary-foreground: #ffffff; /* White text on primary */
+  --secondary: rgba(0, 0, 0, 0.1); /* Black with 10% opacity */
+  --secondary-foreground: #000000; /* Black text */
+  --muted: rgba(255, 255, 255, 0.9); /* White with opacity */
+  --muted-foreground: rgba(0, 0, 0, 0.9); /* Black with 90% opacity */
+  --accent: rgba(0, 0, 0, 0.1); /* Black with 10% opacity */
+  --accent-foreground: #000000; /* Black text */
+  --destructive: oklch(0.704 0.191 22.216); /* Keep original */
+  --border: rgba(0, 0, 0, 0.3); /* Black with 30% opacity */
+  --input: rgba(0, 0, 0, 0.1); /* Black with 10% opacity */
+  --ring: rgba(0, 0, 0, 0.3); /* Black with 30% opacity */
+  --chart-1: oklch(0.488 0.243 264.376); /* Keep original */
+  --chart-2: oklch(0.696 0.17 162.48); /* Keep original */
+  --chart-3: oklch(0.769 0.188 70.08); /* Keep original */
+  --chart-4: oklch(0.627 0.265 303.9); /* Keep original */
+  --chart-5: oklch(0.645 0.246 16.439); /* Keep original */
+  --sidebar: #ffffff; /* White background */
+  --sidebar-foreground: #000000; /* Black text */
+  --sidebar-primary: #000000; /* Black as primary */
+  --sidebar-primary-foreground: #ffffff; /* White text on primary */
+  --sidebar-accent: rgba(0, 0, 0, 0.1); /* Black with 10% opacity */
+  --sidebar-accent-foreground: #000000; /* Black text */
+  --sidebar-border: rgba(0, 0, 0, 0.3); /* Black with 30% opacity */
+  --sidebar-ring: rgba(0, 0, 0, 0.3); /* Black with 30% opacity */
 }
 
 @layer base {
@@ -129,4 +130,9 @@ html {
 /* Container width consistency */
 .container {
   @apply mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8;
+}
+
+/* Overlay utility class */
+.overlay-dark {
+  @apply bg-black/60; /* Black with 60% opacity as specified */
 }
