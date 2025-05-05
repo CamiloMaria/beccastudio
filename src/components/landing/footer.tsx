@@ -1,6 +1,5 @@
-import * as React from "react";
 import Link from "next/link";
-import { Instagram, Facebook, Twitter } from "lucide-react";
+import { Instagram, MessageCircle } from "lucide-react";
 
 import { Container } from "@/components/ui/container";
 import { Logo } from "@/components/ui/logo";
@@ -29,34 +28,42 @@ export function Footer() {
                         <ul className="space-y-2">
                             <li>
                                 <Link
-                                    href="/portfolio"
+                                    href="#galeria"
                                     className="text-white/90 hover:text-gold transition-colors"
                                 >
-                                    Portfolio
+                                    Galeria
                                 </Link>
                             </li>
                             <li>
                                 <Link
-                                    href="/services"
+                                    href="#servicios"
                                     className="text-white/90 hover:text-gold transition-colors"
                                 >
-                                    Services
+                                    Servicios
                                 </Link>
                             </li>
                             <li>
                                 <Link
-                                    href="/about"
+                                    href="#testimonios"
                                     className="text-white/90 hover:text-gold transition-colors"
                                 >
-                                    About
+                                    Testimonios
                                 </Link>
                             </li>
                             <li>
                                 <Link
-                                    href="/contact"
+                                    href="#sobre-mi"
                                     className="text-white/90 hover:text-gold transition-colors"
                                 >
-                                    Contact
+                                    Sobre Mi
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="#contacto"
+                                    className="text-white/90 hover:text-gold transition-colors"
+                                >
+                                    Contacto
                                 </Link>
                             </li>
                         </ul>
@@ -71,7 +78,7 @@ export function Footer() {
                                     href="mailto:contact@beccastudio.com"
                                     className="text-white/90 hover:text-gold transition-colors"
                                 >
-                                    contact@beccastudio.com
+                                    iambecky.057@gmail.com
                                 </a>
                             </li>
                             <li className="text-white/90">
@@ -79,12 +86,12 @@ export function Footer() {
                                     href="tel:+15551234567"
                                     className="text-white/90 hover:text-gold transition-colors"
                                 >
-                                    +1 (555) 123-4567
+                                    +1 (809) 449-1991
                                 </a>
                             </li>
                             <li className="flex items-center gap-4 mt-4">
                                 <Link
-                                    href="https://instagram.com"
+                                    href="https://instagram.com/becca_rs17"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-gold/90 hover:text-gold transition-colors hover:scale-110"
@@ -92,20 +99,12 @@ export function Footer() {
                                     <Instagram size={20} />
                                 </Link>
                                 <Link
-                                    href="https://facebook.com"
+                                    href="https://wa.me/18094491991"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-gold/90 hover:text-gold transition-colors hover:scale-110"
                                 >
-                                    <Facebook size={20} />
-                                </Link>
-                                <Link
-                                    href="https://twitter.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gold/90 hover:text-gold transition-colors hover:scale-110"
-                                >
-                                    <Twitter size={20} />
+                                    <MessageCircle size={20} />
                                 </Link>
                             </li>
                         </ul>
