@@ -5,6 +5,7 @@ import { Footer } from "@/components/landing/footer";
 import { PortfolioGallery } from "@/components/portfolio/portfolio-gallery";
 import { AboutMe } from "@/components/landing/about-me";
 import { Testimonials } from "@/components/landing/testimonials";
+import { Contact } from "@/components/landing/contact";
 
 export default function HomePage() {
   return (
@@ -16,7 +17,7 @@ export default function HomePage() {
         <PortfolioGallery />
         <Testimonials />
         <AboutMe />
-        {/* Additional content sections will go here */}
+        <Contact />
       </main>
       <Footer />
     </div>
