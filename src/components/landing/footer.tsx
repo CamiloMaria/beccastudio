@@ -13,8 +13,8 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Logo and Description */}
                     <div className="md:col-span-2">
-                        <Logo className="mb-4" />
-                        <p className="text-white/90 max-w-md">
+                        <Logo />
+                        <p className="text-white/90 max-w-md mt-4">
                             Professional photography services specializing in portraits, events,
                             and special moments. We capture memories that last a lifetime.
                         </p>
