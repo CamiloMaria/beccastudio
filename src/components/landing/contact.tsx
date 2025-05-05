@@ -17,7 +17,7 @@ export function Contact() {
                     {/* WhatsApp Button */}
                     <GoldButton asChild size="lg">
                         <a
-                            href="https://wa.me/18091234567?text=Hola%20Becca,%20quiero%20una%20sesión%20de%20fotos."
+                            href="https://wa.me/18094491991?text=Hola%20Becca,%20quiero%20una%20sesión%20de%20fotos."
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2"
@@ -29,11 +29,11 @@ export function Contact() {
 
                     {/* Email Link */}
                     <a
-                        href="mailto:hola@beccafotos.com"
+                        href="mailto:iambecky.057@gmail.com"
                         className="flex items-center gap-2 text-lg text-neutral-300 hover:text-gold transition-colors duration-200"
                     >
                         <Mail className="w-5 h-5" />
-                        <span>hola@beccafotos.com</span>
+                        <span>iambecky.057@gmail.com</span>
                     </a>
 
                     {/* Instagram Link */}
