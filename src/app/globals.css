@@ -187,3 +187,5 @@ html {
 .btn-gold-outline {
   @apply border border-gold text-gold hover:bg-gold/10 transition-colors duration-300;
 }
+
+

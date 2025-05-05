@@ -15,6 +15,7 @@ export function Header() {
         { label: 'INICIO', href: '' },
         { label: 'SERVICIOS', href: '#servicios' },
         { label: 'GALERÍA', href: '#galeria' },
+        { label: 'TESTIMONIOS', href: '#testimonios' },
         { label: 'SOBRE MÍ', href: '#sobre-mi' },
         { label: 'CONTACTO', href: '#contacto' },
     ];
