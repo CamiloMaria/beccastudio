@@ -65,7 +65,7 @@ export function Header() {
                     ))}
 
                     <GoldButton
-                        href="/book"
+                        href="#contacto"
                         size="lg"
                         variant="outline"
                         className="rounded-none px-6 py-2 text-sm tracking-widest"
@@ -105,7 +105,7 @@ export function Header() {
                             </Link>
                         ))}
                         <GoldButton
-                            href="/book"
+                            href="#contacto"
                             variant="outline"
                             className="mt-4"
                             onClick={() => setIsMenuOpen(false)}

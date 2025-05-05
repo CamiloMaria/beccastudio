@@ -69,7 +69,7 @@ export function Hero() {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                     <GoldButton
-                        href="#contact"
+                        href="#contacto"
                         size="lg"
                         variant="glow"
                         className="min-w-40"
@@ -78,7 +78,7 @@ export function Hero() {
                     </GoldButton>
 
                     <GoldButton
-                        href="#portfolio"
+                        href="#galeria"
                         size="lg"
                         variant="outline"
                         className="min-w-40 backdrop-blur-sm"
