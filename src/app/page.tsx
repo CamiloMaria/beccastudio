@@ -3,6 +3,7 @@ import { Hero } from "@/components/landing/hero";
 import { Services } from "@/components/landing/services";
 import { Footer } from "@/components/landing/footer";
 import { PortfolioGallery } from "@/components/portfolio/portfolio-gallery";
+import { AboutMe } from "@/components/landing/about-me";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
         <Hero />
         <Services />
         <PortfolioGallery />
+        <AboutMe />
         {/* Additional content sections will go here */}
       </main>
       <Footer />
