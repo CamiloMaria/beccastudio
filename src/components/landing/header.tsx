@@ -7,22 +7,20 @@ import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
 import { GoldButton } from "@/components/ui/gold-button";
 import { Logo } from "@/components/ui/logo";
-import { NavItem } from "@/types";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 export function Header() {
-    const navItems: NavItem[] = [
-        { label: 'INICIO', href: '' },
+    const navItems = useMemo(() => [
         { label: 'SERVICIOS', href: '#servicios' },
         { label: 'GALERÍA', href: '#galeria' },
         { label: 'TESTIMONIOS', href: '#testimonios' },
         { label: 'SOBRE MÍ', href: '#sobre-mi' },
         { label: 'CONTACTO', href: '#contacto' },
-    ];
+    ], []);
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -32,6 +30,59 @@ export function Header() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: "-20% 0px -80% 0px",
+            threshold: 0,
+        };
+
+        const observerCallback: IntersectionObserverCallback = (entries) => {
+            let visibleSectionIndex: number | null = null;
+
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const sectionId = `#${entry.target.id}`;
+                    const index = navItems.findIndex(item => item.href === sectionId);
+                    if (index !== -1) {
+                        visibleSectionIndex = index;
+                    }
+                }
+            });
+
+            setActiveIndex(prevIndex => {
+                if (prevIndex !== visibleSectionIndex) {
+                    return visibleSectionIndex;
+                }
+                return prevIndex;
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        const sections = navItems.map(item => document.querySelector(item.href)).filter(el => el !== null) as Element[];
+
+        sections.forEach(section => {
+            if (section) {
+                observer.observe(section);
+            }
+        });
+
+        return () => {
+            sections.forEach(section => {
+                if (section) {
+                    observer.unobserve(section);
+                }
+            });
+            observer.disconnect();
+        };
+    }, [navItems]);
+
+    const handleLinkClick = (index: number) => {
+        setActiveIndex(index >= 0 ? index : null);
+        setIsMenuOpen(false);
+    };
 
     return (
         <header
@@ -58,7 +109,7 @@ export function Header() {
                                 hover:after:w-full focus:outline-none focus:ring-2 
                                 focus:ring-gold/50 focus:ring-offset-2 rounded-sm
                             `}
-                            onClick={() => setActiveIndex(index)}
+                            onClick={() => handleLinkClick(index)}
                         >
                             {item.label}
                         </Link>
@@ -69,6 +120,7 @@ export function Header() {
                         size="lg"
                         variant="outline"
                         className="rounded-none px-6 py-2 text-sm tracking-widest"
+                        onClick={() => handleLinkClick(navItems.findIndex(i => i.href === '#contacto'))}
                     >
                         Reserva una sesión
                     </GoldButton>
@@ -96,10 +148,7 @@ export function Header() {
                                 href={item.href}
                                 className={`text-xl py-2 border-b border-white/10 
                                     ${index === activeIndex ? 'text-gold' : 'text-white/90 hover:text-gold'}`}
-                                onClick={() => {
-                                    setActiveIndex(index);
-                                    setIsMenuOpen(false);
-                                }}
+                                onClick={() => handleLinkClick(index)}
                             >
                                 {item.label}
                             </Link>
@@ -108,7 +157,7 @@ export function Header() {
                             href="#contacto"
                             variant="outline"
                             className="mt-4"
-                            onClick={() => setIsMenuOpen(false)}
+                            onClick={() => handleLinkClick(navItems.findIndex(i => i.href === '#contacto'))}
                         >
                             Reserva una sesión
                         </GoldButton>
