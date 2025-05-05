@@ -12,9 +12,9 @@ import { useEffect, useState } from "react";
 
 export function Header() {
     const navItems: NavItem[] = [
-        { label: 'INICIO', href: '#inicio' },
+        { label: 'INICIO', href: '' },
         { label: 'SERVICIOS', href: '#servicios' },
-        { label: 'PORTAFOLIO', href: '#portafolio' },
+        { label: 'GALERÍA', href: '#galeria' },
         { label: 'SOBRE MÍ', href: '#sobre-mi' },
         { label: 'CONTACTO', href: '#contacto' },
     ];
