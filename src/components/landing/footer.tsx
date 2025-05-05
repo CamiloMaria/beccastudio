@@ -82,10 +82,6 @@ export function Footer() {
                                     +1 (555) 123-4567
                                 </a>
                             </li>
-                            <li className="text-white/90">
-                                <span className="text-gold">Dirección:</span> 123 Photography St, Suite 101<br />
-                                City, State 12345
-                            </li>
                             <li className="flex items-center gap-4 mt-4">
                                 <Link
                                     href="https://instagram.com"

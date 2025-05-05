@@ -2,6 +2,7 @@ import * as React from "react";
 import { Container } from "@/components/ui/container";
 import { User, Camera, CalendarDays, Briefcase } from "lucide-react";
 import Image from "next/image";
+import { SectionHeading } from "@/components/ui/section-heading";
 
 // Define a type for our service items
 interface ServiceItem {
@@ -15,29 +16,29 @@ export function Services() {
     const services: ServiceItem[] = [
         {
             icon: <User className="text-gold" size={28} />,
-            title: "Portraits",
-            description: "Capture your personality with our professional portrait photography services.",
+            title: "Retratos",
+            description: "Captura tu personalidad con nuestros servicios profesionales de fotografía de retratos.",
         },
         {
             icon: <Camera className="text-gold" size={28} />,
-            title: "Family shots",
-            description: "Create timeless memories with stunning family photography sessions.",
+            title: "Sesiones familiares",
+            description: "Crea recuerdos eternos con impresionantes sesiones de fotografía familiar.",
         },
         {
             icon: <Briefcase className="text-gold" size={28} />,
-            title: "Commercial / Corporate",
-            description: "Elevate your brand with high-quality commercial photography.",
+            title: "Comercial / Corporativo",
+            description: "Eleva tu marca con fotografía comercial de alta calidad.",
         },
         {
             icon: <CalendarDays className="text-gold" size={28} />,
-            title: "Weddings",
-            description: "Document your special day with elegant wedding photography.",
+            title: "Bodas",
+            description: "Documenta tu día especial con elegante fotografía de bodas.",
         },
     ];
 
     return (
-        <section className="py-24 bg-black">
-            <div className="absolute inset-0 opacity-5"
+        <section className="py-24">
+            <div className="absolute inset-0 opacity-[0.04]"
                 style={{
                     backgroundImage: `url('https://grainy-gradients.vercel.app/noise.svg')`,
                     backgroundRepeat: 'repeat',
@@ -48,58 +49,57 @@ export function Services() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     {/* Left Column - Services */}
                     <div className="space-y-12">
-                        <div>
-                            <h2 className="text-3xl md:text-4xl font-bold mb-3">
-                                I&apos;m very talented.
-                            </h2>
-                            <p className="text-gold text-xl">Check what I can do!</p>
-                        </div>
+                        <SectionHeading
+                            title="Explora Mis Servicios."
+                            subtitle="¡Revisa lo que puedo hacer!"
+                            accentText="Servicios"
+                        />
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                             {services.map((service, index) => (
                                 <div
                                     key={index}
-                                    className="group p-6 rounded-lg transition-all duration-300 hover:shadow-xl bg-white"
+                                    className="group p-8 rounded-xl transition-all duration-300 bg-neutral-800/50 border border-neutral-700 shadow-lg hover:shadow-gold/10"
                                 >
-                                    <div className="mb-4 transform transition-transform duration-300 group-hover:scale-110">
+                                    <div className="mb-5 transform transition-all duration-300 group-hover:scale-105 bg-neutral-700/60 p-3 rounded-full inline-block group-hover:bg-gold/20">
                                         {service.icon}
                                     </div>
-                                    <h3 className="text-lg font-semibold mb-2 text-neutral-900">{service.title}</h3>
-                                    <p className="text-neutral-600 text-sm leading-relaxed">{service.description}</p>
+                                    <h3 className="text-lg font-semibold mb-2 text-neutral-100">{service.title}</h3>
+                                    <p className="text-neutral-400 text-sm leading-relaxed">{service.description}</p>
                                 </div>
                             ))}
                         </div>
                     </div>
 
                     {/* Right Column - Photo Grid */}
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="relative min-h-[22rem]">
                         <Image
-                            src="https://images.pexels.com/photos/1772123/pexels-photo-1772123.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            src="/images/gallery/gallery-6.jpg"
                             alt="Studio lighting setup"
                             width={800}
                             height={800}
-                            className="w-full h-48 object-cover rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
+                            className="absolute top-4 right-4 w-3/5 z-20 transform rotate-2 hover:z-40 h-48 object-cover rounded-xl shadow-xl transition-all duration-300 hover:scale-103 border-2 border-neutral-800 hover:border-gold/30 hover:shadow-gold/20"
                         />
                         <Image
-                            src="https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            src="/images/gallery/gallery-4.jpg"
                             alt="Photographer with camera"
                             width={800}
                             height={800}
-                            className="w-full h-48 object-cover rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
+                            className="absolute top-0 left-0 w-1/2 z-10 transform -rotate-3 hover:z-40 h-48 object-cover rounded-xl shadow-xl transition-all duration-300 hover:scale-103 border-2 border-neutral-800 hover:border-gold/30 hover:shadow-gold/20"
                         />
                         <Image
-                            src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            src="/images/gallery/gallery-2.jpg"
                             alt="Outdoor photography"
                             width={800}
                             height={800}
-                            className="w-full h-48 object-cover rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
+                            className="absolute top-60 right-0 w-2/3 z-0 transform -rotate-2 hover:z-40 h-48 object-cover rounded-xl shadow-xl transition-all duration-300 hover:scale-103 border-2 border-neutral-800 hover:border-gold/30 hover:shadow-gold/20"
                         />
                         <Image
-                            src="https://images.pexels.com/photos/2897883/pexels-photo-2897883.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            src="/images/gallery/gallery-3.jpg"
                             alt="Camera equipment"
                             width={800}
                             height={800}
-                            className="w-full h-48 object-cover rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
+                            className="absolute top-96 left-8 w-1/2 z-30 transform rotate-1 hover:z-40 h-48 object-cover rounded-xl shadow-xl transition-all duration-300 hover:scale-103 border-2 border-neutral-800 hover:border-gold/30 hover:shadow-gold/20"
                         />
                     </div>
                 </div>

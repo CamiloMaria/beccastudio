@@ -33,15 +33,27 @@ export function Hero() {
             />
 
             {/* Hero Background Image */}
-            <div ref={parallaxRef} className="absolute inset-0 z-0">
-                <Image
-                    src="/images/rebeca.png"
-                    alt="Professional photography showcase"
-                    width={2000}
-                    height={2000}
-                    className="object-cover"
-                    priority
-                />
+            <div ref={parallaxRef} className="absolute inset-0 z-0 flex">
+                <div className="w-1/2 h-full">
+                    <Image
+                        src="/images/rebeca.jpg"
+                        alt="Professional photography showcase left"
+                        width={800}
+                        height={800}
+                        className="object-cover w-full h-full"
+                        priority
+                    />
+                </div>
+                <div className="w-1/2 h-full">
+                    <Image
+                        src="/images/rebeca-2.jpg"
+                        alt="Professional photography showcase right"
+                        width={800}
+                        height={800}
+                        className="object-cover w-full h-full object-top"
+                        priority
+                    />
+                </div>
             </div>
 
             {/* Hero Content */}
