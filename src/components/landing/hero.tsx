@@ -71,7 +71,7 @@ export function Hero() {
                         variant="outline"
                         className="min-w-40 backdrop-blur-sm"
                     >
-                        Explora el portafolio
+                        Explora mi portafolio
                     </GoldButton>
                 </div>
             </Container>
