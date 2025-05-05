@@ -37,7 +37,7 @@ export function Services() {
     ];
 
     return (
-        <section className="py-24">
+        <section id="servicios" className="py-24">
             <div className="absolute inset-0 opacity-[0.04]"
                 style={{
                     backgroundImage: `url('https://grainy-gradients.vercel.app/noise.svg')`,

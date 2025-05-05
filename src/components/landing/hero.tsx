@@ -22,7 +22,7 @@ export function Hero() {
     }, []);
 
     return (
-        <section className="relative h-screen w-full overflow-hidden">
+        <section id='inicio' className="relative h-screen w-full overflow-hidden">
             {/* Dark overlay with texture */}
             <div
                 className="absolute inset-0 z-10 bg-black/60"
@@ -69,7 +69,7 @@ export function Hero() {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                     <GoldButton
-                        href="/book"
+                        href="#contact"
                         size="lg"
                         variant="glow"
                         className="min-w-40"
@@ -78,7 +78,7 @@ export function Hero() {
                     </GoldButton>
 
                     <GoldButton
-                        href="/portfolio"
+                        href="#portfolio"
                         size="lg"
                         variant="outline"
                         className="min-w-40 backdrop-blur-sm"

@@ -103,7 +103,7 @@ export function PortfolioGallery() {
 
     // 7. Component Structure (JSX)
     return (
-        <section className="py-24 bg-neutral-950 text-white">
+        <section id="portafolio" className="py-24 bg-neutral-950 text-white">
             <Container>
                 <SectionHeading
                     title="Galería de Proyectos"

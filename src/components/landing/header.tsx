@@ -12,11 +12,11 @@ import { useEffect, useState } from "react";
 
 export function Header() {
     const navItems: NavItem[] = [
-        { label: 'INICIO', href: '/' },
-        { label: 'SERVICIOS', href: '/services' },
-        { label: 'PORTAFOLIO', href: '/portfolio' },
-        { label: 'ACERCA DE', href: '/about' },
-        { label: 'CONTACTO', href: '/contact' },
+        { label: 'INICIO', href: '#inicio' },
+        { label: 'SERVICIOS', href: '#servicios' },
+        { label: 'PORTAFOLIO', href: '#portafolio' },
+        { label: 'ACERCA DE', href: '#acerca-de' },
+        { label: 'CONTACTO', href: '#contacto' },
     ];
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
