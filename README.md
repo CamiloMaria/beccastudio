@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📸 BeccaStudio - Sitio Web
 
-## Getting Started
+Este proyecto es la plataforma oficial de un negocio de **fotografía profesional**. Está diseñado para mostrar el portafolio del fotógrafo, permitir a los clientes agendar sesiones, y acceder a sus galerías privadas de manera moderna, rápida y segura.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎯 Objetivo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Brindar una experiencia completa y profesional a los clientes del estudio fotográfico, facilitando:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- La visualización de sesiones anteriores.
+- La reserva de citas personalizadas según disponibilidad.
+- El acceso seguro a galerías privadas mediante autenticación.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Tecnologías usadas
 
-To learn more about Next.js, take a look at the following resources:
+| Tecnología     | Uso principal                                       |
+|----|-----|
+| **Next.js**    | Framework frontend React para páginas modernas      |
+| **TailwindCSS**| Estilos rápidos, limpios y personalizables          |
+| **ShadCN UI**  | Componentes UI modernos basados en Radix + Tailwind |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧩 Módulos principales
 
-## Deploy on Vercel
+### 🔘 Página de inicio
+- Introducción al negocio
+- Portafolio visual
+- CTA directo a reservar o explorar
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📅 ¿Qué incluye el MVP?
+
+- [x] Landing Page profesional
+- [] Calendly para reservas
+- [] Autenticación con Supabase
+- [x] Portafolio
+- [] Acceso a galería privada con enlace
+- [x] Contacto
+
+---
+
+## 💡 Futuras mejoras
+
+- Subida de fotos propia (reemplazar Pixieset)
+- Pasarela de pago (Stripe o PayPal)
+- Panel de administración de sesiones
+- SEO avanzado para posicionar en Google
+
+---
+
+## 📍 Autor
+
+Desarrollado por Camilo Maria – Ingeniero de Software.  
+Instagram: [@camilo._.jose] 
