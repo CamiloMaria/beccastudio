@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { useState, useMemo, useCallback, useEffect } from "react";
 import Image from "next/image";
 import Lightbox from "yet-another-react-lightbox";

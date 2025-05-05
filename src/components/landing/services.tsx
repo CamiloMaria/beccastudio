@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Container } from "@/components/ui/container";
 import { User, Camera, CalendarDays, Briefcase } from "lucide-react";
 import Image from "next/image";
