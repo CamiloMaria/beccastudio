@@ -1,0 +1,158 @@
+---
+import { Button } from "../components";
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-black py-12 mt-auto border-t border-gold/20">
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Logo and Description -->
+      <div class="md:col-span-2">
+        <a href="/" class="logo">
+          <span class="text-xl md:text-2xl font-bold text-white">
+            BECCA<span class="text-gold-light">STUDIO</span>
+          </span>
+        </a>
+        <p class="text-white/90 max-w-md mt-4 mb-4">
+          Servicios de fotografía profesional especializados en retratos,
+          eventos, y momentos especiales. Capturamos recuerdos que duran toda la
+          vida.
+        </p>
+        <div class="mt-4">
+          <Button
+            variant="secondary"
+            href="#contactos"
+            text="Contactar ahora →"
+            class="inline-block"
+          />
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-medium text-lg mb-4 text-gold">Enlaces Rápidos</h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="#inicio"
+              class="text-white/90 hover:text-gold-light transition-colors"
+            >
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a
+              href="#servicios"
+              class="text-white/90 hover:text-gold-light transition-colors"
+            >
+              Servicios
+            </a>
+          </li>
+          <li>
+            <a
+              href="#portafolio"
+              class="text-white/90 hover:text-gold-light transition-colors"
+            >
+              Portafolio
+            </a>
+          </li>
+          <li>
+            <a
+              href="#testimonios"
+              class="text-white/90 hover:text-gold-light transition-colors"
+            >
+              Testimonios
+            </a>
+          </li>
+          <li>
+            <a
+              href="#sobre-mi"
+              class="text-white/90 hover:text-gold-light transition-colors"
+            >
+              Sobre Mí
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="font-medium text-lg mb-4 text-gold">Contacto</h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="mailto:beccastudio17@gmail.com?subject=Consulta%20de%20fotografía&body=Hola%20Becca,%20me%20gustaría%20saber%20más%20sobre%20tus%20servicios%20de%20fotografía."
+              class="text-white/90 hover:text-gold-light transition-colors"
+            >
+              beccastudio17@gmail.com
+            </a>
+          </li>
+          <li class="text-white/90">
+            <a
+              href="tel:+18094491991"
+              class="text-white/90 hover:text-gold-light transition-colors"
+            >
+              +1 (809) 449-1991
+            </a>
+          </li>
+          <li class="flex items-center gap-4 mt-4">
+            <a
+              href="https://instagram.com/becca_rs17"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gold/90 hover:text-gold transition-colors hover:scale-110"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                ></path>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+              </svg>
+            </a>
+            <a
+              href="https://wa.me/18094491991?text=Hola%20Becca,%20quiero%20una%20sesión%20de%20fotos."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gold/90 hover:text-gold transition-colors hover:scale-110"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M20.52 3.45C18.81 1.73 16.5 0.75 14.08 0.75C9.11 0.75 5.03 4.83 5.03 9.8C5.03 11.34 5.43 12.84 6.19 14.16L5 18.29L9.26 17.13C10.53 17.82 11.97 18.17 13.45 18.17H13.45C18.42 18.17 22.5 14.09 22.5 9.12C22.5 6.7 21.52 4.39 19.8 2.67L20.52 3.45ZM14.08 16.83C12.78 16.83 11.51 16.5 10.4 15.87L10.12 15.7L7.32 16.43L8.07 13.7L7.88 13.4C7.17 12.25 6.79 10.9 6.79 9.51C6.79 5.65 10.07 2.38 14.08 2.38C16.1 2.38 18.01 3.2 19.42 4.62C20.83 6.04 21.49 7.95 21.49 9.97C21.48 13.84 18.2 16.83 14.08 16.83M17.85 11.35C17.59 11.22 16.26 10.57 16.03 10.49C15.8 10.4 15.64 10.36 15.47 10.62C15.31 10.88 14.79 11.48 14.66 11.64C14.52 11.8 14.39 11.82 14.13 11.69C12.98 11.12 12.23 10.67 11.46 9.36C11.23 8.95 11.73 8.98 12.19 8.07C12.28 7.9 12.24 7.76 12.17 7.63C12.1 7.5 11.61 6.18 11.4 5.66C11.2 5.15 10.99 5.22 10.84 5.21C10.7 5.2 10.53 5.2 10.37 5.2C10.21 5.2 9.94 5.27 9.71 5.52C9.48 5.78 8.78 6.43 8.78 7.75C8.78 9.07 9.75 10.35 9.89 10.51C10.03 10.67 11.6 13.1 14.01 14.28C15.02 14.82 15.57 14.96 16.11 15.05C16.96 15.21 17.73 15.1 18.34 15.02C19.02 14.94 20.11 14.37 20.32 13.76C20.53 13.15 20.53 12.63 20.46 12.51C20.39 12.39 20.23 12.33 19.97 12.21L17.85 11.35Z"
+                ></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+        <div
+          class="border-t border-gold/20 mt-8 pt-8 text-center text-white/70"
+        >
+          <p>
+            © {currentYear}
+            <span class="text-gold-light">BeccaStudio Photography</span>. All
+            rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
