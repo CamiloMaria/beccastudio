@@ -5,6 +5,8 @@ interface Props {
   title?: string;
   description?: string;
   keywords?: string[];
+  image?: string;
+  canonicalURL?: string;
 }
 
 const {
@@ -19,7 +21,30 @@ const {
     "sesiones",
     "fotos 2x2",
   ],
+  image = "/og-image.jpg", // Default social sharing image
+  canonicalURL = Astro.url.href,
 } = Astro.props;
+
+// Structured data for Local Business
+const localBusinessData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "BeccaStudio Fotografía",
+  description: description,
+  image: new URL(image, Astro.site).toString(),
+  url: Astro.site?.toString(),
+  telephone: "+18094491991",
+  email: "beccastudio17@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Santo Domingo",
+    addressRegion: "Distrito Nacional",
+    addressCountry: "DO",
+  },
+  priceRange: "$$",
+  openingHours: "Mo-Fr 09:00-18:00",
+  sameAs: ["https://www.instagram.com/beccastudio.rd/"],
+};
 ---
 
 <html lang="es">
@@ -30,6 +55,29 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.join(", ")} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="BeccaStudio Fotografía" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.site)} />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(localBusinessData)}
+    />
 
     <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -6,6 +6,7 @@ import { Button } from "../components";
 interface PortfolioItem {
   src: string;
   alt: string;
+  description: string;
   category: string;
   width: number;
   height: number;
@@ -30,56 +31,66 @@ const categories = [
 const portfolioImages: PortfolioItem[] = [
   {
     src: "https://images.pexels.com/photos/3812944/pexels-photo-3812944.jpeg",
-    alt: "Studio lighting setup",
+    alt: "Fotografía profesional de estudio con iluminación especializada",
+    description:
+      "Configuración profesional de iluminación para sesiones de estudio",
     category: "Bodas",
     width: 800,
     height: 1200,
   },
   {
     src: "https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg",
-    alt: "Photographer with camera",
+    alt: "Fotógrafo con cámara profesional en sesión al aire libre",
+    description: "Capturando momentos especiales con equipo profesional",
     category: "Sesiones familiares",
     width: 1200,
     height: 800,
   },
   {
     src: "https://images.pexels.com/photos/1854897/pexels-photo-1854897.jpeg",
-    alt: "Outdoor photography",
+    alt: "Sesión de fotografía al aire libre con luz natural",
+    description: "Fotografía natural aprovechando la luz del día",
     category: "Fotos 2x2",
     width: 800,
     height: 800,
   },
   {
     src: "https://images.pexels.com/photos/1813947/pexels-photo-1813947.jpeg",
-    alt: "Camera equipment",
+    alt: "Equipo de fotografía profesional para sesiones comerciales",
+    description:
+      "Equipo especializado para fotografía de productos y comercios",
     category: "Comercios",
     width: 1200,
     height: 700,
   },
   {
     src: "https://images.pexels.com/photos/3059745/pexels-photo-3059745.jpeg",
-    alt: "Wedding photoshoot",
+    alt: "Sesión fotográfica de boda con pareja en escenario romántico",
+    description: "Capturando el amor y la felicidad en el día más especial",
     category: "Bodas",
     width: 800,
     height: 1000,
   },
   {
     src: "https://images.pexels.com/photos/1261731/pexels-photo-1261731.jpeg",
-    alt: "Studio portrait",
+    alt: "Retrato de estudio con iluminación profesional y fondo neutro",
+    description: "Retratos de estudio con técnicas de iluminación avanzadas",
     category: "Otros",
     width: 900,
     height: 900,
   },
   {
     src: "https://images.pexels.com/photos/3062541/pexels-photo-3062541.jpeg",
-    alt: "Family photoshoot",
+    alt: "Sesión fotográfica familiar en exteriores con luz natural",
+    description: "Sesiones familiares que capturan la conexión y el amor",
     category: "Sesiones familiares",
     width: 1000,
     height: 800,
   },
   {
     src: "https://images.pexels.com/photos/2613260/pexels-photo-2613260.jpeg",
-    alt: "Passport photo",
+    alt: "Fotografía profesional para documentos de identidad con fondo blanco",
+    description: "Fotos 2x2 de alta calidad para documentos oficiales",
     category: "Fotos 2x2",
     width: 800,
     height: 1000,
@@ -143,9 +154,12 @@ const ITEMS_PER_PAGE = 6;
               loading={index < ITEMS_PER_PAGE ? "eager" : "lazy"}
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <p class="text-white text-sm font-semibold translate-y-2 hover:translate-y-0 transition-transform duration-300">
-                {image.alt}
-              </p>
+              <div>
+                <p class="text-white text-sm font-semibold translate-y-2 hover:translate-y-0 transition-transform duration-300">
+                  {image.alt}
+                </p>
+                <p class="text-white/70 text-xs mt-1">{image.description}</p>
+              </div>
             </div>
           </div>
         ))
@@ -176,6 +190,7 @@ const ITEMS_PER_PAGE = 6;
     <button
       id="close-modal"
       class="absolute top-4 right-4 text-white hover:text-gold-light"
+      aria-label="Cerrar galería"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -183,6 +198,7 @@ const ITEMS_PER_PAGE = 6;
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
+        aria-hidden="true"
       >
         <path
           stroke-linecap="round"
@@ -200,6 +216,7 @@ const ITEMS_PER_PAGE = 6;
     <button
       id="prev-image"
       class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gold-light"
+      aria-label="Imagen anterior"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -207,6 +224,7 @@ const ITEMS_PER_PAGE = 6;
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
+        aria-hidden="true"
       >
         <path
           stroke-linecap="round"
@@ -218,6 +236,7 @@ const ITEMS_PER_PAGE = 6;
     <button
       id="next-image"
       class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gold-light"
+      aria-label="Siguiente imagen"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -225,6 +244,7 @@ const ITEMS_PER_PAGE = 6;
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
+        aria-hidden="true"
       >
         <path
           stroke-linecap="round"
