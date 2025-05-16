@@ -1,5 +1,7 @@
 ---
 import { Image } from "astro:assets";
+import image1 from "../assets/images/hero/becca-1.webp";
+import image2 from "../assets/images/hero/becca-2.webp";
 import { Button } from "../components";
 ---
 
@@ -14,16 +16,16 @@ import { Button } from "../components";
   <!-- Hero Background Image -->
   <div class="absolute inset-0 z-0 flex parallax-container">
     <div class="w-1/2 h-full">
-      <img
-        src="https://images.pexels.com/photos/1921168/pexels-photo-1921168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+      <Image
+        src={image1}
         alt="Professional photography showcase left"
         class="object-cover w-full h-full"
         fetchpriority="high"
       />
     </div>
     <div class="w-1/2 h-full">
-      <img
-        src="https://images.pexels.com/photos/4992193/pexels-photo-4992193.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+      <Image
+        src={image2}
         alt="Professional photography showcase right"
         class="object-cover w-full h-full object-top"
         fetchpriority="high"
