@@ -242,23 +242,35 @@ const ITEMS_PER_PAGE = 6;
     document.querySelectorAll<HTMLElement>(".portfolio-item");
   const categoryFilters =
     document.querySelectorAll<HTMLButtonElement>(".category-filter");
-  const loadMoreButton = document.getElementById("load-more");
+  const loadMoreButton = document.getElementById(
+    "load-more"
+  ) as HTMLButtonElement | null;
   const noImagesMessage =
     document.querySelector<HTMLParagraphElement>(".no-images-message");
 
   // Modal elements
-  const imageModal = document.getElementById("image-modal");
-  const modalImage = document.getElementById("modal-image");
-  const closeModal = document.getElementById("close-modal");
-  const prevButton = document.getElementById("prev-image");
-  const nextButton = document.getElementById("next-image");
+  const imageModal = document.getElementById(
+    "image-modal"
+  ) as HTMLDivElement | null;
+  const modalImage = document.getElementById(
+    "modal-image"
+  ) as HTMLImageElement | null;
+  const closeModal = document.getElementById(
+    "close-modal"
+  ) as HTMLButtonElement | null;
+  const prevButton = document.getElementById(
+    "prev-image"
+  ) as HTMLButtonElement | null;
+  const nextButton = document.getElementById(
+    "next-image"
+  ) as HTMLButtonElement | null;
 
   // State
   let currentFilter = "All";
   let currentPage = 1;
   let itemsPerPage = 6;
   let currentModalIndex = 0;
-  let visibleItems = [];
+  let visibleItems: HTMLElement[] = [];
 
   // Initialize
   function init() {
@@ -281,7 +293,7 @@ const ITEMS_PER_PAGE = 6;
     categoryFilters.forEach((filter) => {
       filter.addEventListener("click", () => {
         currentPage = 1;
-        applyFilter(filter.dataset.category);
+        applyFilter(filter.dataset.category || "All");
 
         // Update active filter styles
         categoryFilters.forEach((f) => {
@@ -313,13 +325,13 @@ const ITEMS_PER_PAGE = 6;
     // Modal events
     portfolioItems.forEach((item) => {
       item.addEventListener("click", () => {
-        const index = parseInt(item.dataset.index);
+        const index = parseInt(item.dataset.index || "0");
         openModal(index);
       });
     });
 
     closeModal?.addEventListener("click", () => {
-      imageModal.classList.add("hidden");
+      imageModal?.classList.add("hidden");
     });
 
     prevButton?.addEventListener("click", () => {
@@ -332,15 +344,21 @@ const ITEMS_PER_PAGE = 6;
 
     // Close modal with escape key
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && !imageModal.classList.contains("hidden")) {
+      if (
+        e.key === "Escape" &&
+        imageModal &&
+        !imageModal.classList.contains("hidden")
+      ) {
         imageModal.classList.add("hidden");
       } else if (
         e.key === "ArrowLeft" &&
+        imageModal &&
         !imageModal.classList.contains("hidden")
       ) {
         navigateModal(-1);
       } else if (
         e.key === "ArrowRight" &&
+        imageModal &&
         !imageModal.classList.contains("hidden")
       ) {
         navigateModal(1);
@@ -349,7 +367,7 @@ const ITEMS_PER_PAGE = 6;
   }
 
   // Apply category filter
-  function applyFilter(category) {
+  function applyFilter(category: string) {
     currentFilter = category;
 
     // Reset visible items
@@ -360,14 +378,14 @@ const ITEMS_PER_PAGE = 6;
     // Filter items
     visibleItems = Array.from(portfolioItems).filter((item) => {
       return category === "All" || item.dataset.category === category;
-    });
+    }) as HTMLElement[];
 
     // Update no images message
     if (visibleItems.length === 0) {
-      noImagesMessage.classList.remove("hidden");
-      loadMoreButton.classList.add("hidden");
+      noImagesMessage?.classList.remove("hidden");
+      loadMoreButton?.classList.add("hidden");
     } else {
-      noImagesMessage.classList.add("hidden");
+      noImagesMessage?.classList.add("hidden");
       updateVisibleItems();
     }
   }
@@ -386,22 +404,25 @@ const ITEMS_PER_PAGE = 6;
 
     // Update load more button
     if (itemsToShow < visibleItems.length) {
-      loadMoreButton.classList.remove("hidden");
+      loadMoreButton?.classList.remove("hidden");
     } else {
-      loadMoreButton.classList.add("hidden");
+      loadMoreButton?.classList.add("hidden");
     }
   }
 
   // Open modal with image
-  function openModal(index) {
+  function openModal(index: number) {
     // Find the actual visible index
     const visibleIndex = visibleItems.findIndex(
-      (item) => parseInt(item.dataset.index) === index
+      (item) => parseInt(item.dataset.index || "0") === index
     );
     if (visibleIndex === -1) return;
 
     currentModalIndex = visibleIndex;
-    const imgElement = visibleItems[currentModalIndex].querySelector("img");
+    const imgElement = visibleItems[currentModalIndex].querySelector(
+      "img"
+    ) as HTMLImageElement;
+    if (!imgElement || !modalImage || !imageModal) return;
 
     modalImage.src = imgElement.src;
     modalImage.alt = imgElement.alt;
@@ -409,11 +430,14 @@ const ITEMS_PER_PAGE = 6;
   }
 
   // Navigate through modal images
-  function navigateModal(direction) {
+  function navigateModal(direction: number) {
     currentModalIndex =
       (currentModalIndex + direction + visibleItems.length) %
       visibleItems.length;
-    const imgElement = visibleItems[currentModalIndex].querySelector("img");
+    const imgElement = visibleItems[currentModalIndex].querySelector(
+      "img"
+    ) as HTMLImageElement;
+    if (!imgElement || !modalImage) return;
 
     modalImage.src = imgElement.src;
     modalImage.alt = imgElement.alt;
