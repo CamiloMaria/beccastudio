@@ -1,0 +1,191 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #000000; /* Black background */
+  --foreground: #f8f8f8; /* Neutral 50 for default text */
+  --card: #000000; /* Black background */
+  --card-foreground: #f8f8f8; /* Neutral 50 for text */
+  --popover: #000000; /* Black background */
+  --popover-foreground: #f8f8f8; /* Neutral 50 for text */
+  --primary: #ffffff; /* White as primary color */
+  --primary-foreground: #000000; /* Black text on primary */
+  --secondary: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+  --secondary-foreground: #ffffff; /* White text */
+  --muted: rgba(0, 0, 0, 0.9); /* Black with opacity */
+  --muted-foreground: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+  --accent: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+  --accent-foreground: #ffffff; /* White text */
+  --destructive: oklch(0.577 0.245 27.325); /* Keep original */
+  --border: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
+  --input: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+  --ring: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
+  --chart-1: oklch(0.646 0.222 41.116); /* Keep original */
+  --chart-2: oklch(0.6 0.118 184.704); /* Keep original */
+  --chart-3: oklch(0.398 0.07 227.392); /* Keep original */
+  --chart-4: oklch(0.828 0.189 84.429); /* Keep original */
+  --chart-5: oklch(0.769 0.188 70.08); /* Keep original */
+  --sidebar: #000000; /* Black background */
+  --sidebar-foreground: #f8f8f8; /* Neutral 50 for text */
+  --sidebar-primary: #ffffff; /* White as primary */
+  --sidebar-primary-foreground: #000000; /* Black text on primary */
+  --sidebar-accent: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+  --sidebar-accent-foreground: #ffffff; /* White text */
+  --sidebar-border: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
+  --sidebar-ring: rgba(255, 255, 255, 0.3); /* White with 30% opacity */
+  
+  /* Gold accent colors */
+  --gold: #D4AF37; /* Classic gold */
+  --gold-light: #F5D76E; /* Lighter gold for hover states */
+  --gold-dark: #B8860B; /* Darker gold for active states */
+}
+
+/* Since we're using a dark theme by default, we'll adjust the light theme but keep it as an option */
+.light {
+  --background: #ffffff; /* White background */
+  --foreground: #000000; /* Black text */
+  --card: #ffffff; /* White background */
+  --card-foreground: #000000; /* Black text */
+  --popover: #ffffff; /* White background */
+  --popover-foreground: #000000; /* Black text */
+  --primary: #000000; /* Black as primary */
+  --primary-foreground: #ffffff; /* White text on primary */
+  --secondary: rgba(0, 0, 0, 0.1); /* Black with 10% opacity */
+  --secondary-foreground: #000000; /* Black text */
+  --muted: rgba(255, 255, 255, 0.9); /* White with opacity */
+  --muted-foreground: rgba(0, 0, 0, 0.9); /* Black with 90% opacity */
+  --accent: rgba(0, 0, 0, 0.1); /* Black with 10% opacity */
+  --accent-foreground: #000000; /* Black text */
+  --destructive: oklch(0.704 0.191 22.216); /* Keep original */
+  --border: rgba(0, 0, 0, 0.3); /* Black with 30% opacity */
+  --input: rgba(0, 0, 0, 0.1); /* Black with 10% opacity */
+  --ring: rgba(0, 0, 0, 0.3); /* Black with 30% opacity */
+  --chart-1: oklch(0.488 0.243 264.376); /* Keep original */
+  --chart-2: oklch(0.696 0.17 162.48); /* Keep original */
+  --chart-3: oklch(0.769 0.188 70.08); /* Keep original */
+  --chart-4: oklch(0.627 0.265 303.9); /* Keep original */
+  --chart-5: oklch(0.645 0.246 16.439); /* Keep original */
+  --sidebar: #ffffff; /* White background */
+  --sidebar-foreground: #000000; /* Black text */
+  --sidebar-primary: #000000; /* Black as primary */
+  --sidebar-primary-foreground: #ffffff; /* White text on primary */
+  --sidebar-accent: rgba(0, 0, 0, 0.1); /* Black with 10% opacity */
+  --sidebar-accent-foreground: #000000; /* Black text */
+  --sidebar-border: rgba(0, 0, 0, 0.3); /* Black with 30% opacity */
+  --sidebar-ring: rgba(0, 0, 0, 0.3); /* Black with 30% opacity */
+  
+  /* Gold accent colors remain consistent */
+  --gold: #D4AF37; /* Classic gold */
+  --gold-light: #F5D76E; /* Lighter gold for hover states */
+  --gold-dark: #B8860B; /* Darker gold for active states */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Additional styles for smooth scrolling and transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Container width consistency */
+.container {
+  @apply mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8;
+}
+
+/* Overlay utility class */
+.overlay-dark {
+  @apply bg-black/60; /* Black with 60% opacity as specified */
+}
+
+/* Gold accent text and elements */
+.text-gold {
+  color: var(--gold);
+}
+
+.text-gold-light {
+  color: var(--gold-light);
+}
+
+.text-gold-dark {
+  color: var(--gold-dark);
+}
+
+.border-gold {
+  border-color: var(--gold);
+}
+
+.bg-gold {
+  background-color: var(--gold);
+}
+
+.gold-gradient {
+  background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+}
+
+.gold-glow {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Button with gold accent */
+.btn-gold {
+  @apply bg-gold text-black hover:bg-gold-light transition-colors duration-300;
+}
+
+.btn-gold-outline {
+  @apply border border-gold text-gold hover:bg-gold/10 transition-colors duration-300;
+}
+
+

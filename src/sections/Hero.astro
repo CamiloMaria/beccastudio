@@ -1,0 +1,89 @@
+<section id="home" class="relative h-screen w-full overflow-hidden">
+  <!-- Dark overlay with texture -->
+  <div
+    class="absolute inset-0 z-10 bg-black/60"
+    style="background-image: url('https://grainy-gradients.vercel.app/noise.svg'); background-blend-mode: overlay;"
+  >
+  </div>
+
+  <!-- Hero Background Image -->
+  <div class="absolute inset-0 z-0 flex parallax-container">
+    <div class="w-1/2 h-full">
+      <img
+        src="https://images.pexels.com/photos/1921168/pexels-photo-1921168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        alt="Professional photography showcase left"
+        class="object-cover w-full h-full"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="w-1/2 h-full">
+      <img
+        src="https://images.pexels.com/photos/4992193/pexels-photo-4992193.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        alt="Professional photography showcase right"
+        class="object-cover w-full h-full object-top"
+        fetchpriority="high"
+      />
+    </div>
+  </div>
+
+  <!-- Hero Content -->
+  <div
+    class="container mx-auto px-4 md:px-6 relative z-20 flex flex-col items-center justify-center h-full text-center text-white"
+  >
+    <h1
+      class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 max-w-4xl animate-fade-in"
+    >
+      Capturando tus <span class="text-gold-light gold-glow"
+        >Momentos Más Preciosos</span
+      >
+    </h1>
+
+    <p
+      class="text-lg md:text-xl max-w-2xl mb-8 text-white/90 animate-slide-down"
+    >
+      Servicios de fotografía profesional que llevan tu visión a la vida a
+      través del arte de la narración visual
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a
+        href="#contact"
+        class="bg-gold-light text-black hover:bg-gold hover:text-white px-6 py-3 transition-colors duration-300 min-w-40 text-center"
+      >
+        Reserva una sesión
+      </a>
+
+      <a
+        href="#portfolio"
+        class="border border-gold-light text-gold-light hover:bg-gold-light/10 px-6 py-3 transition-colors duration-300 backdrop-blur-sm min-w-40 text-center"
+      >
+        Explora mi portafolio
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Parallax effect
+  const parallaxContainer = document.querySelector(".parallax-container");
+
+  function updateParallax() {
+    if (parallaxContainer) {
+      const scrollValue = window.scrollY;
+      (parallaxContainer as HTMLElement).style.transform =
+        `translateY(${scrollValue * 0.3}px)`;
+    }
+  }
+
+  window.addEventListener("scroll", updateParallax);
+  window.addEventListener("resize", updateParallax);
+
+  // Initialize
+  updateParallax();
+</script>
+
+<style>
+  .gold-glow {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  }
+</style>
