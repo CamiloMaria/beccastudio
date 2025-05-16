@@ -171,7 +171,7 @@ const ITEMS_PER_PAGE = 6;
   <!-- Modal for lightbox -->
   <div
     id="image-modal"
-    class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4"
+    class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4"
   >
     <button
       id="close-modal"
@@ -332,6 +332,7 @@ const ITEMS_PER_PAGE = 6;
 
     closeModal?.addEventListener("click", () => {
       imageModal?.classList.add("hidden");
+      imageModal?.classList.remove("flex");
     });
 
     prevButton?.addEventListener("click", () => {
@@ -350,6 +351,7 @@ const ITEMS_PER_PAGE = 6;
         !imageModal.classList.contains("hidden")
       ) {
         imageModal.classList.add("hidden");
+        imageModal.classList.remove("flex");
       } else if (
         e.key === "ArrowLeft" &&
         imageModal &&
@@ -427,6 +429,7 @@ const ITEMS_PER_PAGE = 6;
     modalImage.src = imgElement.src;
     modalImage.alt = imgElement.alt;
     imageModal.classList.remove("hidden");
+    imageModal.classList.add("flex");
   }
 
   // Navigate through modal images
