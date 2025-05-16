@@ -1,5 +1,7 @@
 ---
 // Define your navigation items here
+import { Button } from "./index";
+
 const navItems = [
   { label: "Inicio", href: "#inicio" },
   { label: "Servicios", href: "#servicios" },
@@ -33,12 +35,13 @@ const navItems = [
           </a>
         ))
       }
-      <a
+      <Button
+        variant="secondary"
+        size="sm"
         href="#contactos"
-        class="border border-gold-light text-gold-light hover:bg-gold-light/10 px-4 py-2 transition-colors duration-300 text-sm tracking-widest"
-      >
-        Reserva una sesión
-      </a>
+        text="Reserva una sesión"
+        class="tracking-widest"
+      />
     </nav>
 
     <!-- Mobile Menu Button -->
@@ -79,12 +82,12 @@ const navItems = [
           </a>
         ))
       }
-      <a
+      <Button
+        variant="secondary"
         href="#contactos"
-        class="border border-gold-light text-gold-light hover:bg-gold-light/10 py-3 text-center transition-colors duration-300 mt-4 mobile-link"
-      >
-        Reserva una sesión
-      </a>
+        text="Reserva una sesión"
+        class="mobile-link mt-4"
+      />
     </div>
   </div>
 </header>

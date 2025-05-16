@@ -1,0 +1,50 @@
+---
+interface Props {
+  variant?: "primary" | "secondary";
+  size?: "sm" | "md" | "lg";
+  href?: string;
+  text: string;
+  class?: string;
+  [key: string]: any; // For other HTML attributes
+}
+
+const {
+  variant = "primary",
+  size = "md",
+  href,
+  text,
+  class: className = "",
+  ...rest
+} = Astro.props;
+
+// Base classes
+const baseClasses = "transition-colors duration-300 text-center";
+
+// Size classes
+const sizeClasses = {
+  sm: "px-4 py-2 text-sm",
+  md: "px-6 py-3",
+  lg: "px-8 py-4 text-lg",
+}[size];
+
+// Variant classes
+const variantClasses = {
+  primary: "bg-gold-light text-black hover:bg-gold hover:text-white",
+  secondary: "border border-gold-light text-gold-light hover:bg-gold-light/10",
+}[variant];
+
+// Combine all classes
+const classes = `${baseClasses} ${sizeClasses} ${variantClasses} ${className}`;
+---
+
+{
+  href ? (
+    <a href={href} class={classes} {...rest}>
+      {text}
+    </a>
+  ) : (
+    <button class={classes} {...rest}>
+      {text}
+    </button>
+  )
+}
