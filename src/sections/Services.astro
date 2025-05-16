@@ -1,0 +1,141 @@
+---
+import { Image } from "astro:assets";
+
+interface ServiceItem {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const services: ServiceItem[] = [
+  {
+    icon: "👤",
+    title: "Retratos",
+    description:
+      "Captura tu personalidad con nuestros servicios profesionales de fotografía de retratos.",
+  },
+  {
+    icon: "📸",
+    title: "Sesiones familiares",
+    description:
+      "Crea recuerdos eternos con impresionantes sesiones de fotografía familiar.",
+  },
+  {
+    icon: "💼",
+    title: "Comercial / Corporativo",
+    description: "Eleva tu marca con fotografía comercial de alta calidad.",
+  },
+  {
+    icon: "📅",
+    title: "Bodas",
+    description: "Documenta tu día especial con elegante fotografía de bodas.",
+  },
+];
+
+const galleryImages = [
+  {
+    src: "https://images.pexels.com/photos/3812944/pexels-photo-3812944.jpeg",
+    alt: "Studio lighting setup",
+  },
+  {
+    src: "https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg",
+    alt: "Photographer with camera",
+  },
+  {
+    src: "https://images.pexels.com/photos/1854897/pexels-photo-1854897.jpeg",
+    alt: "Outdoor photography",
+  },
+  {
+    src: "https://images.pexels.com/photos/1813947/pexels-photo-1813947.jpeg",
+    alt: "Camera equipment",
+  },
+];
+---
+
+<section id="services" class="relative py-24 bg-black">
+  <div
+    class="absolute inset-0 opacity-[0.04]"
+    style="background-image: url('https://grainy-gradients.vercel.app/noise.svg'); background-repeat: repeat;"
+  >
+  </div>
+
+  <div class="container mx-auto px-4 md:px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Left Column - Services -->
+      <div class="space-y-12">
+        <div class="space-y-4">
+          <span class="text-gold-light text-sm tracking-wider">SERVICIOS</span>
+          <h2 class="text-3xl md:text-4xl font-bold">
+            Explora Mis <span class="text-gold-light">Servicios.</span>
+          </h2>
+          <p class="text-white/60">¡Revisa lo que puedo hacer!</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {
+            services.map((service) => (
+              <div class="group p-8 rounded-xl transition-all duration-300 bg-white/5 border border-white/10 hover:border-gold-light/30 shadow-lg hover:shadow-gold/10">
+                <div class="mb-5 transform transition-all duration-300 group-hover:scale-105 bg-white/5 p-3 rounded-full inline-block group-hover:bg-gold/20">
+                  <span class="text-2xl">{service.icon}</span>
+                </div>
+                <h3 class="text-lg font-semibold mb-2 text-white">
+                  {service.title}
+                </h3>
+                <p class="text-white/60 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Right Column - Photo Grid -->
+      <div class="relative min-h-[22rem]">
+        {
+          galleryImages.map((image, index) => (
+            // <img
+            //   src={image.src}
+            //   alt={image.alt}
+            //   class={`absolute w-${index === 0 || index === 2 ? "3/5" : "1/2"} z-${index * 10}
+            //   transform ${index % 2 === 0 ? "rotate-2" : "-rotate-3"} hover:z-40 h-48 object-cover rounded-xl
+            //   shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white/10
+            //   hover:border-gold-light/30 hover:shadow-gold/20
+            //   ${
+            //     index === 0
+            //       ? "top-4 right-4"
+            //       : index === 1
+            //         ? "top-0 left-0"
+            //         : index === 2
+            //           ? "top-60 right-0"
+            //           : "top-96 left-8"
+            //   }`}
+            //   loading="lazy"
+            // />
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={100}
+              height={100}
+              class={`absolute w-${index === 0 || index === 2 ? "3/5" : "1/2"} z-${index * 10} 
+                transform ${index % 2 === 0 ? "rotate-2" : "-rotate-3"} hover:z-40 h-48 object-cover rounded-xl 
+                shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white/10 
+                hover:border-gold-light/30 hover:shadow-gold/20
+                ${
+                  index === 0
+                    ? "top-4 right-4"
+                    : index === 1
+                      ? "top-0 left-0"
+                      : index === 2
+                        ? "top-60 right-0"
+                        : "top-96 left-8"
+                }`}
+              loading="lazy"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+---
