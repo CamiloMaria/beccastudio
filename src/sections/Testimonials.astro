@@ -1,0 +1,90 @@
+---
+import { StarRating } from "../components";
+
+interface Testimonial {
+  name: string;
+  title: string;
+  image: string;
+  quote: string;
+  rating: number;
+  date: string;
+}
+
+const testimonials: Testimonial[] = [
+  {
+    name: "Sarah Anderson",
+    title: "Bride & Marketing Executive",
+    image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg",
+    quote:
+      "Rebeca captured our wedding day perfectly. Every photo tells a story, and her attention to detail is remarkable. The candid moments she caught are priceless.",
+    rating: 5,
+    date: "March 2024",
+  },
+  {
+    name: "Michael Chen",
+    title: "Corporate Director",
+    image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+    quote:
+      "The corporate headshots exceeded our expectations. Rebeca's professional approach and ability to make everyone feel comfortable resulted in perfect photos for our entire team.",
+    rating: 5,
+    date: "February 2024",
+  },
+  {
+    name: "Emma Rodriguez",
+    title: "Fashion Designer",
+    image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg",
+    quote:
+      "Working with Rebeca for my portfolio shoot was amazing. She understands lighting and composition like no other photographer I've worked with.",
+    rating: 5,
+    date: "January 2024",
+  },
+];
+---
+
+<section id="testimonios" class="relative py-20 bg-black">
+  <div
+    class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold/5 via-transparent to-transparent opacity-50"
+  >
+  </div>
+
+  <div class="container mx-auto px-4 md:px-6 relative z-10">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Lo Que Dicen <span class="text-gold-light">Mis Clientes</span>
+      </h2>
+      <p class="text-white/80 max-w-2xl mx-auto">
+        Descubre por qué mis clientes confían en nosotros para capturar sus
+        momentos más importantes
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        testimonials.map((testimonial) => (
+          <div class="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-lg hover:border-gold-light/30 transition-colors duration-300">
+            <div class="flex items-center gap-4 mb-4">
+              <img
+                src={testimonial.image}
+                alt={testimonial.name}
+                class="w-16 h-16 rounded-full object-cover"
+                loading="lazy"
+              />
+              <div>
+                <h3 class="font-semibold text-white">{testimonial.name}</h3>
+                <p class="text-sm text-white/60">{testimonial.title}</p>
+              </div>
+            </div>
+
+            <StarRating rating={testimonial.rating} />
+
+            <blockquote class="mt-4 text-white/80 italic">
+              "{testimonial.quote}"
+            </blockquote>
+
+            <p class="mt-4 text-sm text-white/60">{testimonial.date}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
