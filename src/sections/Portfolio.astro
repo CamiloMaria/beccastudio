@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import { Button } from "../components";
 
 // Define the interface for image items
@@ -15,87 +14,81 @@ interface PortfolioItem {
 // Define categories
 const categories = [
   "All",
-  "Fotos 2x2",
-  "Sesiones familiares",
+  "Retratos",
+  "2x2",
   "Comercios",
-  "Bodas",
+  "Sesiones familiares",
   "Otros",
 ];
 
-// Sample portfolio images - these would be replaced with actual images
-// Ideally, you would import images directly using:
-// import image1 from '../assets/images/gallery/image1.jpg';
-// Or use Astro.glob if you have a directory of images to import dynamically
+// Define category determination rules
+const CATEGORY_RULES = {
+  Retratos: (path: string) => path.includes("/retratos/"),
+  "2x2": (path: string) => path.includes("/2x2/"),
+  "Sesiones familiares": (path: string) => path.match(/(familia|family)/i),
+  Comercios: (path: string) => path.includes("/comercios/"),
+  Otros: (path: string) => path.includes("/2x2/"),
+};
 
-// For now, we'll use placeholder images
-const portfolioImages: PortfolioItem[] = [
-  {
-    src: "https://images.pexels.com/photos/3812944/pexels-photo-3812944.jpeg",
-    alt: "Fotografía profesional de estudio con iluminación especializada",
-    description:
-      "Configuración profesional de iluminación para sesiones de estudio",
-    category: "Bodas",
-    width: 800,
-    height: 1200,
-  },
-  {
-    src: "https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg",
-    alt: "Fotógrafo con cámara profesional en sesión al aire libre",
-    description: "Capturando momentos especiales con equipo profesional",
-    category: "Sesiones familiares",
-    width: 1200,
-    height: 800,
-  },
-  {
-    src: "https://images.pexels.com/photos/1854897/pexels-photo-1854897.jpeg",
-    alt: "Sesión de fotografía al aire libre con luz natural",
-    description: "Fotografía natural aprovechando la luz del día",
-    category: "Fotos 2x2",
-    width: 800,
-    height: 800,
-  },
-  {
-    src: "https://images.pexels.com/photos/1813947/pexels-photo-1813947.jpeg",
-    alt: "Equipo de fotografía profesional para sesiones comerciales",
-    description:
-      "Equipo especializado para fotografía de productos y comercios",
-    category: "Comercios",
-    width: 1200,
-    height: 700,
-  },
-  {
-    src: "https://images.pexels.com/photos/3059745/pexels-photo-3059745.jpeg",
-    alt: "Sesión fotográfica de boda con pareja en escenario romántico",
-    description: "Capturando el amor y la felicidad en el día más especial",
-    category: "Bodas",
-    width: 800,
-    height: 1000,
-  },
-  {
-    src: "https://images.pexels.com/photos/1261731/pexels-photo-1261731.jpeg",
-    alt: "Retrato de estudio con iluminación profesional y fondo neutro",
-    description: "Retratos de estudio con técnicas de iluminación avanzadas",
-    category: "Otros",
-    width: 900,
-    height: 900,
-  },
-  {
-    src: "https://images.pexels.com/photos/3062541/pexels-photo-3062541.jpeg",
-    alt: "Sesión fotográfica familiar en exteriores con luz natural",
-    description: "Sesiones familiares que capturan la conexión y el amor",
-    category: "Sesiones familiares",
-    width: 1000,
-    height: 800,
-  },
-  {
-    src: "https://images.pexels.com/photos/2613260/pexels-photo-2613260.jpeg",
-    alt: "Fotografía profesional para documentos de identidad con fondo blanco",
-    description: "Fotos 2x2 de alta calidad para documentos oficiales",
-    category: "Fotos 2x2",
-    width: 800,
-    height: 1000,
-  },
-];
+// Use import.meta.glob to import all images at once
+const imageModules = import.meta.glob("../assets/images/gallery/**/*.webp", {
+  eager: true,
+});
+
+// Process all images into portfolio items
+const portfolioImages: PortfolioItem[] = Object.entries(imageModules).map(
+  ([path, module]: [string, any]) => {
+    const fileName = path.split("/").pop() || "";
+    const baseName = fileName.replace(/\.[^/.]+$/, ""); // Remove file extension
+
+    // Determine category based on path and filename
+    let category = "Otros";
+    for (const [cat, matchFn] of Object.entries(CATEGORY_RULES)) {
+      if (matchFn(path)) {
+        category = cat;
+        break;
+      }
+    }
+
+    // Create description based on category and filename
+    let description;
+    switch (category) {
+      case "Comercios":
+        description = `Fotografía comercial de ${baseName}`;
+        break;
+      case "Bodas":
+        description = `Fotografía de boda - ${baseName}`;
+        break;
+      case "Sesiones familiares":
+        description = `Sesión familiar - ${baseName}`;
+        break;
+      case "Retratos":
+        description = `Retrato - ${baseName}`;
+        break;
+      case "Otros":
+        description = `Fotografía - ${baseName}`;
+        break;
+      default:
+        description = `Fotografía de ${baseName}`;
+    }
+
+    // Create proper alt text
+    const altPrefix = category === "Comercios" ? "Comercio" : "Fotografía";
+
+    return {
+      src: module.default.src,
+      alt: `${altPrefix} - ${baseName}`,
+      description,
+      category,
+      // Use actual image dimensions if available, fall back to defaults
+      width: 800,
+      height: 1200,
+    };
+  }
+);
+
+// Sort by category for better organization
+portfolioImages.sort((a, b) => a.category.localeCompare(b.category));
 
 // Items to show initially
 const ITEMS_PER_PAGE = 6;
