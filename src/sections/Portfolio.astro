@@ -1,9 +1,10 @@
 ---
 import { Button } from "../components";
+import { Image } from "astro:assets";
 
 // Define the interface for image items
 interface PortfolioItem {
-  src: string;
+  image: ImageMetadata;
   alt: string;
   description: string;
   category: string;
@@ -76,7 +77,7 @@ const portfolioImages: PortfolioItem[] = Object.entries(imageModules).map(
     const altPrefix = category === "Comercios" ? "Comercio" : "Fotografía";
 
     return {
-      src: module.default.src,
+      image: module.default,
       alt: `${altPrefix} - ${baseName}`,
       description,
       category,
@@ -132,26 +133,26 @@ const ITEMS_PER_PAGE = 6;
       class="portfolio-grid columns-1 sm:columns-2 lg:columns-3 gap-4 lg:gap-6 space-y-4"
     >
       {
-        portfolioImages.map((image, index) => (
+        portfolioImages.map((item, index) => (
           <div
             class={`relative overflow-hidden rounded-lg border border-white/10 hover:border-gold-light/30 transition-all duration-300 shadow-lg hover:shadow-gold/10 portfolio-item ${index >= ITEMS_PER_PAGE ? "hidden" : ""}`}
-            data-category={image.category}
+            data-category={item.category}
             data-index={index}
           >
-            <img
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
+            <Image
+              src={item.image}
+              alt={item.alt}
+              width={item.width}
+              height={item.height}
               class="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
               loading={index < ITEMS_PER_PAGE ? "eager" : "lazy"}
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <div>
                 <p class="text-white text-sm font-semibold translate-y-2 hover:translate-y-0 transition-transform duration-300">
-                  {image.alt}
+                  {item.alt}
                 </p>
-                <p class="text-white/70 text-xs mt-1">{image.description}</p>
+                <p class="text-white/70 text-xs mt-1">{item.description}</p>
               </div>
             </div>
           </div>
@@ -434,6 +435,7 @@ const ITEMS_PER_PAGE = 6;
     if (visibleIndex === -1) return;
 
     currentModalIndex = visibleIndex;
+    // The Image component renders as an img tag, so this still works
     const imgElement = visibleItems[currentModalIndex].querySelector(
       "img"
     ) as HTMLImageElement;
@@ -450,6 +452,7 @@ const ITEMS_PER_PAGE = 6;
     currentModalIndex =
       (currentModalIndex + direction + visibleItems.length) %
       visibleItems.length;
+    // The Image component renders as an img tag, so this still works
     const imgElement = visibleItems[currentModalIndex].querySelector(
       "img"
     ) as HTMLImageElement;
