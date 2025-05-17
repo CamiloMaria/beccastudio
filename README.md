@@ -1,48 +1,58 @@
-# Astro Starter Kit: Basics
+# 📸 BeccaStudio - Sitio Web
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+Este proyecto es la plataforma oficial de un negocio de **fotografía profesional**. Está diseñado para mostrar el portafolio del fotógrafo, permitir a los clientes agendar sesiones, y acceder a sus galerías privadas de manera moderna, rápida y segura.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+---
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🎯 Objetivo
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Brindar una experiencia completa y profesional a los clientes del estudio fotográfico, facilitando:
 
-## 🚀 Project Structure
+- La visualización de sesiones anteriores.
+- La reserva de citas personalizadas según disponibilidad.
+- El acceso seguro a galerías privadas mediante autenticación.
 
-Inside of your Astro project, you'll see the following folders and files:
+---
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## 🚀 Tecnologías usadas
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+| Tecnología     | Uso principal                                       |
+|----|-----|
+| **Astro**      | Framework web rápido y orientado al contenido       |
+| **TailwindCSS**| Estilos rápidos, limpios y personalizables          |
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+## 🧩 Módulos principales
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+### 🔘 Página de inicio
+- Introducción al negocio
+- Portafolio visual
+- CTA directo a reservar o explorar
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📅 ¿Qué incluye el MVP?
+
+- [x] Landing Page profesional
+- [] Calendly para reservas
+- [] Autenticación con Supabase
+- [x] Portafolio
+- [] Acceso a galería privada con enlace
+- [x] Contacto
+
+---
+
+## 💡 Futuras mejoras
+
+- Subida de fotos propia (reemplazar Pixieset)
+- Pasarela de pago (Stripe o PayPal)
+- Panel de administración de sesiones
+- SEO avanzado para posicionar en Google
+
+---
+
+## 📍 Autor
+
+Desarrollado por Camilo Maria – Ingeniero de Software.  
+Instagram: [@camilo._.jose] 
