@@ -3,7 +3,6 @@ import { StarRating } from "../components";
 
 interface Testimonial {
   name: string;
-  title: string;
   image: string;
   quote: string;
   rating: number;
@@ -12,31 +11,28 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    name: "Sarah Anderson",
-    title: "Bride & Marketing Executive",
+    name: "Carolina Méndez",
     image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg",
     quote:
-      "Rebeca captured our wedding day perfectly. Every photo tells a story, and her attention to detail is remarkable. The candid moments she caught are priceless.",
+      "Rebeca capturó nuestro día de boda perfectamente. Cada foto cuenta una historia, y su atención al detalle es extraordinaria. Los momentos espontáneos que captó no tienen precio.",
     rating: 5,
-    date: "March 2024",
+    date: "Marzo 2024",
   },
   {
-    name: "Michael Chen",
-    title: "Corporate Director",
+    name: "Manuel Rodríguez",
     image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
     quote:
-      "The corporate headshots exceeded our expectations. Rebeca's professional approach and ability to make everyone feel comfortable resulted in perfect photos for our entire team.",
+      "Las fotos corporativas superaron nuestras expectativas. El enfoque profesional de Rebeca y su capacidad para hacer que todos se sientan cómodos resultaron en fotos perfectas para todo nuestro equipo.",
     rating: 5,
-    date: "February 2024",
+    date: "Febrero 2024",
   },
   {
     name: "Emma Rodriguez",
-    title: "Fashion Designer",
     image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg",
     quote:
-      "Working with Rebeca for my portfolio shoot was amazing. She understands lighting and composition like no other photographer I've worked with.",
+      "Trabajar con Rebeca fue increíble. Ella entiende la iluminación y la composición como ningún otro fotógrafo con el que haya trabajado.",
     rating: 5,
-    date: "January 2024",
+    date: "Enero 2024",
   },
 ];
 ---
@@ -71,7 +67,6 @@ const testimonials: Testimonial[] = [
               />
               <div>
                 <h3 class="font-semibold text-white">{testimonial.name}</h3>
-                <p class="text-sm text-white/60">{testimonial.title}</p>
               </div>
             </div>
 
