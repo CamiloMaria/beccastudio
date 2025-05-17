@@ -17,12 +17,6 @@ export default defineConfig({
     build: {
       // Optimize CSS, JS and assets for better performance
       cssCodeSplit: true,
-      minify: 'terser',
-      terserOptions: {
-        compress: {
-          drop_console: true, // Remove console logs in production
-        }
-      },
       rollupOptions: {
         output: {
           // Split chunks for better caching
