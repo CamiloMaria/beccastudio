@@ -9,24 +9,24 @@ interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    icon: "👤",
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>',
     title: "Retratos",
     description:
       "Captura tu personalidad con mis servicios profesionales de fotografía de retratos.",
   },
   {
-    icon: "📸",
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"><path d="M20 4h-3.17L15 2H9L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 13c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/><path d="M12 17c1.65 0 3-1.35 3-3s-1.35-3-3-3-3 1.35-3 3 1.35 3 3 3z"/></svg>',
     title: "Sesiones familiares",
     description:
       "Crea recuerdos eternos con impresionantes sesiones de fotografía familiar.",
   },
   {
-    icon: "💼",
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>',
     title: "Comercial / Corporativo",
     description: "Eleva tu marca con fotografía comercial de alta calidad.",
   },
   {
-    icon: "📅",
+    icon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>',
     title: "Bodas",
     description: "Documenta tu día especial con elegante fotografía de bodas.",
   },
@@ -64,24 +64,26 @@ const galleryImages = [
       <!-- Left Column - Services -->
       <div class="space-y-12">
         <div class="space-y-4">
-          <span class="text-gold-light text-sm tracking-wider">SERVICIOS</span>
+          <span class="text-gold-light text-sm tracking-wider font-medium"
+            >SERVICIOS</span
+          >
           <h2 class="text-3xl md:text-4xl font-bold">
             Explora Mis <span class="text-gold-light">Servicios.</span>
           </h2>
-          <p class="text-white/60">¡Revisa lo que puedo hacer!</p>
+          <p class="text-white/75">¡Revisa lo que puedo hacer!</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {
             services.map((service) => (
-              <div class="group p-8 rounded-xl transition-all duration-300 bg-white/5 border border-white/10 hover:border-gold-light/30 shadow-lg hover:shadow-gold/10">
-                <div class="mb-5 transform transition-all duration-300 group-hover:scale-105 bg-white/5 p-3 rounded-full inline-block group-hover:bg-gold/20">
-                  <span class="text-2xl">{service.icon}</span>
+              <div class="group p-8 rounded-xl transition-all duration-300 bg-white/5 group-hover:bg-white/10 border border-white/10 hover:border-gold-light/30 shadow-lg hover:shadow-gold/20">
+                <div class="mb-5 transform transition-all duration-300 group-hover:scale-115 bg-white/5 p-3 rounded-full inline-block group-hover:bg-gold/20">
+                  <span set:html={service.icon} />
                 </div>
                 <h3 class="text-lg font-semibold mb-2 text-white">
                   {service.title}
                 </h3>
-                <p class="text-white/60 text-sm leading-relaxed">
+                <p class="text-white/70 text-sm leading-relaxed">
                   {service.description}
                 </p>
               </div>
@@ -101,8 +103,8 @@ const galleryImages = [
               height={100}
               class={`absolute w-${index === 0 || index === 2 ? "3/5" : "1/2"} z-${index * 10} 
                 transform ${index % 2 === 0 ? "rotate-2" : "-rotate-3"} hover:z-40 h-48 object-cover rounded-xl 
-                shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white/10 
-                hover:border-gold-light/30 hover:shadow-gold/20
+                shadow-xl transition-all duration-300 hover:scale-110 border-2 border-white/10 
+                hover:border-gold-light/50 hover:shadow-xl hover:shadow-gold/30
                 ${
                   index === 0
                     ? "top-4 right-4"
@@ -120,4 +122,3 @@ const galleryImages = [
     </div>
   </div>
 </section>
----
