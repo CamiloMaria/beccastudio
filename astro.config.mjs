@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://beccastudio.com',
+  site: 'https://beccastudio.netlify.app',
   trailingSlash: 'never', // Consistent URLs improve SEO
   build: {
     assets: 'assets', // Put all assets in a dedicated folder

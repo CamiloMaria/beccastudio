@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://beccastudio.com/sitemap.xml 
+Sitemap: https://beccastudio.netlify.app/sitemap.xml

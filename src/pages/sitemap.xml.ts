@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-const SITE_URL = 'https://beccastudio.com';
+const SITE_URL = import.meta.env.SITE;
 
 export const GET: APIRoute = async () => {
   // Define all your URLs with their lastmod dates
