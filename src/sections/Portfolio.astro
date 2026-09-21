@@ -76,23 +76,24 @@ const portfolioImages: PortfolioItem[] = Object.entries(imageModules).map(
     // Create proper alt text
     const altPrefix = category === "Comercios" ? "Comercio" : "Fotografía";
 
+    // Keep the rendered box ratio in sync with the real file so images do not
+    // reflow the masonry columns while they load.
+    const targetWidth = 800;
+    const ratio = module.default.height / module.default.width;
+
     return {
       image: module.default,
       alt: `${altPrefix} - ${baseName}`,
       description,
       category,
-      // Use actual image dimensions if available, fall back to defaults
-      width: 800,
-      height: 1200,
+      width: targetWidth,
+      height: Math.round(targetWidth * ratio),
     };
   }
 );
 
 // Sort by category for better organization
 portfolioImages.sort((a, b) => a.category.localeCompare(b.category));
-
-// Items to show initially
-const ITEMS_PER_PAGE = 6;
 ---
 
 <section id="portafolio" class="py-24 bg-black">
@@ -135,7 +136,7 @@ const ITEMS_PER_PAGE = 6;
       {
         portfolioImages.map((item, index) => (
           <div
-            class={`relative overflow-hidden rounded-lg border border-white/10 hover:border-gold-light/30 transition-all duration-300 shadow-lg hover:shadow-gold/10 portfolio-item ${index >= ITEMS_PER_PAGE ? "hidden" : ""}`}
+            class="relative overflow-hidden rounded-lg border border-white/10 hover:border-gold-light/30 transition-all duration-300 shadow-lg hover:shadow-gold/10 portfolio-item"
             data-category={item.category}
             data-index={index}
           >
@@ -145,7 +146,7 @@ const ITEMS_PER_PAGE = 6;
               width={item.width}
               height={item.height}
               class="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-              loading={index < ITEMS_PER_PAGE ? "eager" : "lazy"}
+              loading={index < 6 ? "eager" : "lazy"}
             />
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
               <div>
@@ -164,16 +165,6 @@ const ITEMS_PER_PAGE = 6;
     <p class="text-center text-white/50 mt-8 hidden no-images-message">
       No hay imágenes que coincidan con esta categoría.
     </p>
-
-    <!-- Load More Button -->
-    <div class="text-center mt-12">
-      <Button
-        id="load-more"
-        variant="primary"
-        text="Cargar Más"
-        class="hidden"
-      />
-    </div>
   </div>
 
   <!-- Modal for lightbox -->
@@ -256,9 +247,6 @@ const ITEMS_PER_PAGE = 6;
     document.querySelectorAll<HTMLElement>(".portfolio-item");
   const categoryFilters =
     document.querySelectorAll<HTMLButtonElement>(".category-filter");
-  const loadMoreButton = document.getElementById(
-    "load-more"
-  ) as HTMLButtonElement | null;
   const noImagesMessage =
     document.querySelector<HTMLParagraphElement>(".no-images-message");
 
@@ -281,8 +269,6 @@ const ITEMS_PER_PAGE = 6;
 
   // State
   let currentFilter = "All";
-  let currentPage = 1;
-  let itemsPerPage = 6;
   let currentModalIndex = 0;
   let visibleItems: HTMLElement[] = [];
 
@@ -306,7 +292,6 @@ const ITEMS_PER_PAGE = 6;
     // Add event listeners
     categoryFilters.forEach((filter) => {
       filter.addEventListener("click", () => {
-        currentPage = 1;
         applyFilter(filter.dataset.category || "All");
 
         // Update active filter styles
@@ -328,12 +313,6 @@ const ITEMS_PER_PAGE = 6;
           }
         });
       });
-    });
-
-    // Load more event
-    loadMoreButton?.addEventListener("click", () => {
-      currentPage++;
-      updateVisibleItems();
     });
 
     // Modal events
@@ -386,44 +365,19 @@ const ITEMS_PER_PAGE = 6;
   function applyFilter(category: string) {
     currentFilter = category;
 
-    // Reset visible items
-    portfolioItems.forEach((item) => {
-      item.classList.add("hidden");
-    });
-
     // Filter items
     visibleItems = Array.from(portfolioItems).filter((item) => {
       return category === "All" || item.dataset.category === category;
     }) as HTMLElement[];
 
+    // Show every matching item at once: hiding/revealing items in batches
+    // re-balances the CSS columns and makes already visible photos jump.
+    portfolioItems.forEach((item) => {
+      item.classList.toggle("hidden", !visibleItems.includes(item));
+    });
+
     // Update no images message
-    if (visibleItems.length === 0) {
-      noImagesMessage?.classList.remove("hidden");
-      loadMoreButton?.classList.add("hidden");
-    } else {
-      noImagesMessage?.classList.add("hidden");
-      updateVisibleItems();
-    }
-  }
-
-  // Update visible items based on current page
-  function updateVisibleItems() {
-    const itemsToShow = Math.min(
-      currentPage * itemsPerPage,
-      visibleItems.length
-    );
-
-    // Show items for current page
-    for (let i = 0; i < itemsToShow; i++) {
-      visibleItems[i].classList.remove("hidden");
-    }
-
-    // Update load more button
-    if (itemsToShow < visibleItems.length) {
-      loadMoreButton?.classList.remove("hidden");
-    } else {
-      loadMoreButton?.classList.add("hidden");
-    }
+    noImagesMessage?.classList.toggle("hidden", visibleItems.length !== 0);
   }
 
   // Open modal with image
